@@ -1,0 +1,16 @@
+version: '3'
+services:
+  emu2mqtt:
+    container_name: emu2mqtt
+    image: emu2mqtt:latest
+    environment:
+      - TZ=America/Los_Angeles
+      - MQTT_HOSTNAME=127.0.0.1
+      - MQTT_USERNAME=user
+      - MQTT_PASSWORD=pass
+      - SERIAL_DEVICE=/dev/ttyACM0
+      - SERIAL_BAUDRATE=115200
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    network_mode: host
+    privileged: true
