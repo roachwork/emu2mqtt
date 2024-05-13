@@ -37,6 +37,6 @@ jobs:
         with:
           context: .
           file: docker/Dockerfile
-          push: github.event_name != 'pull_request'
+          push: {{ github.event_name != 'pull_request' }}
           tags: roachwork/emu2mqtt:latest
           platforms: linux/arm/v6,linux/arm/v7,linux/arm64,linux/arm64/v8,linux/amd64
